@@ -23,14 +23,28 @@ async function write(data) {
   }
 }
 
-async function getAll() {
+async function getAll(query) {
   const data = await read();
 
-  if (data) {
-    return Object.entries(data).map(([id, v]) => Object.assign({}, { id }, v));
-  } else {
-    return undefined;
+  let cars = Object.entries(data).map(([id, v]) =>
+    Object.assign({}, { id }, v)
+  );
+
+  if (query.search) {
+    cars = cars.filter((c) =>
+      c.name.toLocaleLowerCase().includes(query.search.toLocaleLowerCase())
+    );
   }
+
+  if (query.from) {
+    cars = cars.filter((c) => c.price >= Number(query.from));
+  }
+
+  if (query.to) {
+    cars = cars.filter((c) => c.price <= Number(query.to));
+  }
+
+  return cars;
 }
 
 async function getById(id) {
