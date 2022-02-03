@@ -4,5 +4,17 @@
     "description": "179000 km. Manual transmission. Gasoline Engine",
     "imageUrl": "11641394772476717_nw.jpg",
     "price": 7500
+  },
+  "f69cf39e-0fd0": {
+    "name": "Alfa Romeo 159 sportwagon 2.0 JTDm",
+    "description": "179000 km. Manual transmission. Petrol Engine",
+    "imageUrl": "11640886285318963_DH.jpg",
+    "price": 8600
+  },
+  "481d0d81-551f": {
+    "name": "Alfa Romeo Giulietta 170hp Switzerland",
+    "description": "131000 km. Manual transmission. Gasoline engine",
+    "imageUrl": "11634406266510835_Vc.jpg",
+    "price": 13800
   }
 }
