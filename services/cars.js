@@ -74,11 +74,35 @@ function nextId() {
   );
 }
 
+async function deleteById(id) {
+  const data = await read();
+
+  if (data.hasOwnProperty(id)) {
+    delete data[id];
+    await write(data);
+  } else {
+    throw new ReferenceError("No such ID in database");
+  }
+}
+
+async function updateById(id, car) {
+  const data = await read();
+
+  if (data.hasOwnProperty(id)) {
+    data[id] = car;
+    await write(data);
+  } else {
+    throw new ReferenceError("No such ID in database");
+  }
+}
+
 module.exports = () => (req, res, next) => {
   req.storage = {
     getAll,
     getById,
     createCar,
+    updateById,
+    deleteById,
   };
   next();
 };
